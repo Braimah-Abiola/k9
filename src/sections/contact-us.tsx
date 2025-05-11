@@ -52,7 +52,7 @@ const ContactUs = () => {
     }
 
     return (
-        <section className=" w-full px-4 md:px-12 lg:px-20 py-20 mb-20">
+        <section id="contact" className=" w-full px-4 md:px-12 lg:px-20 py-20 mb-20">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 items-start">
                 <div className=" py-6">
                     <p className="text-lg mb-2">Get in touch with us</p>

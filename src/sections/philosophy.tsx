@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Philosophy = () => {
     return (
-        <section className=" w-full py-20 px-4 md:px-12 lg:px-20">
+        <section id="about" className=" w-full py-20 px-4 md:px-12 lg:px-20">
             <h2 className=" font-medium text-4xl md:text-6xl text-primary">Legacy K9’s Philosophy</h2>
             <p className=" text-lg md:text-xl md:max-w-[44rem] mt-4">We strive to create a warm and nurturing environment where your pets can thrive and feel loved. Our mission is to create a place that will at the very least:</p>
 

@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const AvailablePuppies = () => {
     return (
-        <section className=" w-full px-4 md:px-12 lg:px-20 py-20">
+        <section id="aviailable-puppies" className=" w-full px-4 md:px-12 lg:px-20 py-20">
             <h2 className=" font-medium text-4xl md:text-6xl text-primary">Our Available Puppies</h2>
             <div className=" w-full flex flex-col lg:flex-row items-start h-[52rem] lg:h-[44rem] mt-12">
                 <div className=" w-full lg:w-[32rem] xl:w-[40rem] h-full relative">
@@ -20,7 +20,7 @@ const AvailablePuppies = () => {
                             <span className=" text-lg md:text-xl mt-2"><span className="text-black font-medium">Age:</span > 10 Months</span>
                         </div>
 
-                        <div className="flex items-center gap-4">
+                        <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
                             <div className="flex gap-2 items-center text-primary text-lg md:text-xl">
                                 <Image src="/assets/heart.svg" width={32} height={32} alt="Heart icon" />
                                 <span>Affectionate</span>

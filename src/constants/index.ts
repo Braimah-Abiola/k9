@@ -4,7 +4,7 @@ export const navItems = [
     href: "/",
   },
   {
-    title: "Available Puppies",
+    title: "Puppies",
     href: "/#aviailable-puppies",
   },
   {
