@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 interface Props {
   text: string;
   link: string;
-  isActive: boolean;
   setIsActive: (value: boolean) => void;
   setMobileNav: (value: boolean) => void;
 }
@@ -13,7 +12,6 @@ interface Props {
 const AnimatedNavLink = ({
   text,
   link,
-  isActive,
   setIsActive,
   setMobileNav,
 }: Props) => {

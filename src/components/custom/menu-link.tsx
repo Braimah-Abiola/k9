@@ -42,7 +42,6 @@ const MenuLink = ({
       <AnimatedNavLink
         setIsActive={setIsActive}
         setMobileNav={setMobileNav}
-        isActive={isActive}
         link={href}
         text={title}
       />
