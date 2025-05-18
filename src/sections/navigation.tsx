@@ -21,7 +21,11 @@ const Navigation = () => {
     };
 
     return (
-        <header className="z-50 relative w-full py-4 px-4 md:px-12 lg:px-20">
+        <motion.header
+            initial={{ opacity: 0, y: -25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className="z-50 relative w-full py-4 px-4 md:px-12 lg:px-20">
             <nav className="flex justify-between items-center">
                 <div className=" relative lg:h-20 aspect-square lg:w-20 w-12 h-12">
                     <Image fill src="/assets/logo.png" alt="Logo" />
@@ -80,7 +84,7 @@ const Navigation = () => {
                     <SideMenu setIsActive={setIsActive} setMobileNav={setMobileNav} />
                 )}
             </AnimatePresence>
-        </header>
+        </motion.header>
     );
 }
 
