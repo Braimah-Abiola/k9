@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     siteName: "Legacy K9",
     description:
       "Legacy K9 specializes in helping you find the perfect loyal companion. We connect you with high-quality dogs that match your lifestyle, providing professional guidance throughout the adoption process.",
-    images: ["/assets/hero-img.png"],
+    images: ["/assets/thumbnail.webp"],
     url: `${baseUrl}`,
   },
   twitter: {
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     title: "Legacy K9 — Find Your Perfect Lifetime Companion",
     description:
       "Legacy K9 specializes in helping you find the perfect loyal companion. We connect you with high-quality dogs that match your lifestyle, providing professional guidance throughout the adoption process.",
-    images: ["/assets/hero-img.png"],
+    images: ["/assets/thumbnail.webp"],
     creator: "@onlytoolai",
   },
   icons: "/favicon.ico",
