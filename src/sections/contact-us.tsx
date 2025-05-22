@@ -1,9 +1,5 @@
 "use client"
 
-import { useState } from "react"
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
-import * as z from "zod"
 import { Button } from "@/components/ui/button"
 import {
     Form,
@@ -15,6 +11,11 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useState } from "react"
+import { useForm } from "react-hook-form"
+import * as z from "zod"
+import { sendContactEmail } from "../../actions/contact"
 
 const formSchema = z.object({
     firstName: z.string().min(1, "First name is required"),
@@ -27,6 +28,10 @@ const formSchema = z.object({
 
 const ContactUs = () => {
     const [isSubmitting, setIsSubmitting] = useState(false)
+    const [submitStatus, setSubmitStatus] = useState<{
+        success: boolean
+        message: string
+    } | null>(null)
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -42,13 +47,23 @@ const ContactUs = () => {
 
     async function onSubmit(values: z.infer<typeof formSchema>) {
         setIsSubmitting(true)
-        // Here you would normally send the form data to your API
-        console.log(values)
+        setSubmitStatus(null) // Reset status on new submission
 
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1000))
-        setIsSubmitting(false)
-        form.reset()
+        try {
+            const result = await sendContactEmail(values)
+            setSubmitStatus(result)
+            if (result.success) {
+                form.reset()
+            }
+        } catch (error) {
+            console.error("Submission error:", error)
+            setSubmitStatus({
+                success: false,
+                message: "An unexpected error occurred.",
+            })
+        } finally {
+            setIsSubmitting(false)
+        }
     }
 
     return (
@@ -161,6 +176,17 @@ const ContactUs = () => {
                                     </FormItem>
                                 )}
                             />
+
+                            {submitStatus && (
+                                <p
+                                    className={`mt-4 text-sm ${submitStatus.success
+                                        ? "text-green-600"
+                                        : "text-red-600"
+                                        }`}
+                                >
+                                    {submitStatus.message}
+                                </p>
+                            )}
 
                             <Button
                                 type="submit"
